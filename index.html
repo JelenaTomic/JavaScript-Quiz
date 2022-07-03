@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>JavaScript Quiz</title>
+    <!-- title -->
+</head>
+<body>
+    <div class="container">
+        <!--div with class container for everything on the screen  -->
+        <div id="question-container" class="hide"></div>
+        <!-- div for questionsto hel us with ja and it will be hidden -->
+        <div id="questions"></div>
+        <div id="answers"></div>
+
+        <div class="controls">
+            <button id="start-button">Start the quiz</button>
+        </div>
+        <!-- div for button to start the quiz -->
+        <div id="Timer"></div>
+        <!--If player run out of the time the game stops -->
+        <div id="Timeisup" class="hide">
+            <h2>Your time is up! </h2>
+            <p>Enter your name in the box!</p>
+            <input class="player" type="text" /> 
+            <span>Final Score:  </span>
+            <span class="final-score"></span>
+            <button type="button" id="submitName" class="btn btn-success">Score</button>
+  
+          </div>
+    </div>
+    <div id="topscore-area"  class="hide"> 
+        <h2> Top Scores</h2>
+        <ul id="users-scores"> </ul>
+        <button type="button" id="start-over" class="btn btn-success">Start Over</button>
+      </div>
+
+    
+</body>
+</html>
