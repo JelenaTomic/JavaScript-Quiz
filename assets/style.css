@@ -1,0 +1,28 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+body{
+    /* making question box on the middle */
+    margin: auto;
+    padding: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color:  #ffcba7; 
+}
+
+.container{
+    background-color: #ffeadc ;
+    width: 800px;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 20px 4px;
+
+}
+
+#start-button{
+    font-size: 15px;
+}
