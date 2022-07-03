@@ -9,20 +9,35 @@
     <!-- title -->
 </head>
 <body>
+    <header>
+        <h2 class="timer">Time: <span id="timer"></span>
+        </h2>    
+    </header>
+    
+    <div id="start" class="show">
+        <h2>Welcome to JavaScript quiz</h2>
+        <p>Answer the questions based on your knowledge and try to beat the time.</p>
+        <br>
+        <p>Every incorrect answer will subtract 10 seconds from your clock.</p>
+        <!-- <p>Press start to begin</p> -->
+        <button id="start-button">Start the quiz</button>
+    </div>
+    <!-- div for button to start the quiz -->
+
     <div class="container">
         <!--div with class container for everything on the screen  -->
-        <div id="question-container" class="hide"></div>
+        <div id="question-container" class="hide">
+
+        </div>
         <!-- div for questionsto hel us with ja and it will be hidden -->
-        <div id="questions"></div>
-        <div id="answers">
-            <button clas="button"></button>
+        <div id="questions">
+
+        </div>
+        <div id="answers-buttons" class="btn-grid">
+           <!--the answer part of the box  -->
         </div>
 
-        <div class="controls">
-            <button id="start-button">Start the quiz</button>
-        </div>
-        <!-- div for button to start the quiz -->
-        <div id="Timer"></div>
+      
         <!--If player run out of the time the game stops -->
         <div id="Timeisup" class="hide">
             <h2>Your time is up! </h2>
@@ -40,6 +55,11 @@
         <button type="button" id="start-over" class="btn btn-success">Start Over</button>
       </div>
 
-    
+      <div class="hide" id="correct">
+        <h2>Correct!</h2>
+    </div>
+    <div class="hide" id="incorrect">
+        <h2>Incorrect! </h2>
+    </div>
 </body>
 </html>

@@ -21,3 +21,16 @@
 // 8.q ery useful tool for used during development and debugging for printing content to the debugger is? terminal, console log, for loops, all the above/ ans console log
 // 9q. What is the output of "10"+20+30 in JavaScript? 102030 ,60 ,"10"50 , none the above. answ 102030
 // 10q.Are Java and JavaScript same? yes, no, in some way, none the above, answ yes
+
+var containerQuestions = document.getElementById("question-container");
+var containerStart = document.getElementById("start");
+var correctEl =document.getElementById("correct");
+var incorrectEl = document.getElementById("incorrect");
+var btnStartEl = document.querySelector("#start-button");
+var questionsEl = document.getElementById("questions");
+var answerButtonEl = document.getElementById("answers-buttons");
+var timerEl = document.querySelector("#timer");
+var score = 0;
+var timeleft;
+var timeisup;
+timerEl.innerText = 0;
