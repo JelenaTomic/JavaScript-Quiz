@@ -35,3 +35,73 @@ var timeleft;
 var timeisup;
 timerEl.innerText = 0;
 
+// qestions and answers
+var questions = [
+    {
+    question:   "What data type is not supported by JavaScript?",
+    optionAnswers: ["undefined", "sting" , "boolean" ,"letters"],
+    answer: 3
+ },
+ {
+    question:   "What are the advantages of JavaScript?",
+    optionAnswers: ["Less server interaction", "Immediate feedback to the visitors" ,"Increased interactivity" , "All the Above"],
+    answer: 3
+ },
+ {
+    question:   "Is Java Script case sensitive language?",
+    optionAnswers: ["No", "Yes", "Only in the beginning", "In most cases no"],
+    answer: 1
+ },
+ {
+    question:   "What are the different data types present in JavaScript?",
+    optionAnswers: ["Primitive data types","Non- Primitive data types", "All  the above", "None of the above"],
+    answer: 2
+ },
+ {
+    question:   "What statement is a string?",
+    optionAnswers: [" ''6'' " ,"6","six", "none"],
+    answer: 0
+ },
+ {
+    question:   "What is the list of strings or objects in JavaScript called??",
+    optionAnswers: ["Variable", "Index", "Array", "Function"],
+    answer: 2
+ },
+ {
+    question:   "'+=' operator can operate on following data values?",
+    optionAnswers: ["Float", "String", "Integer", "All the above"],
+    answer: 2
+ },
+ {
+    question:   "Very useful tool for use during development and debugging for printing content to the debugger is?",
+    optionAnswers: ["Terminal", "Console-log", "For loops", "All the above"],
+    answer: 1
+ },{
+    question:   "What is the output of ''10''+20+30 in JavaScript?",
+    optionAnswers: ["102030" , "60" ,"''10''50" , "None of the above"],
+    answer: 0
+ },{
+    question:   "Are Java and JavaScript same?",
+    optionAnswers: ["Yes", "No", "In some way", "None of the above"],
+    answer: 1
+ },
+]
+// timer, check if the time is up. Start time 150
+var setTime = function(){
+   timeleft = 150;
+
+
+var timercheck = setInterval(function () {
+    timerEl.innerText = timeleft;
+    timeleft--
+
+    if(timeisup){
+        clearInterval(timercheck)
+    }
+    if(timeleft < 0){
+        showScore()
+        timerEl.innerText = 0
+        clearInterval(timercheck)
+    }
+  },1000)
+  } 
