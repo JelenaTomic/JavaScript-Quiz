@@ -34,3 +34,4 @@ var score = 0;
 var timeleft;
 var timeisup;
 timerEl.innerText = 0;
+
