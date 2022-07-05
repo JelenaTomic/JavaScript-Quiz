@@ -86,6 +86,8 @@ var questions = [
     answer: 1
  },
 ]
+var questionIndex = 0
+
 // timer, check if the time is up. Start time 150
 var setTime = function(){
    timeleft = 150;
@@ -105,3 +107,37 @@ var timercheck = setInterval(function () {
     }
   },1000)
   } 
+
+//   make the question selection random and use added classes to show or hide
+var startGame = function(){
+    containerStart.classList.add('hide');
+    containerStart.classList.remove('show');
+    containerQuestionsEl.classList.remove('hide');
+    containerQuestionsEl.classList.add('show');
+    arrayShuffledQuestions = questions.sort(() => Math.random() - 0.5)
+        setTime()
+        setQuestion()
+}
+// set up next question for quiz
+var setQuestion = function(){
+   resetAnswers()
+   displayQuestion(arrayShuffledQuestions[qestionIndex])
+}
+
+// to remove question buttons
+var resetAnswers = function(){
+   while (answerButtonEl.firstChild){
+      answerButtonEl.firstChild(answerButtonEl.firstChild)
+   };
+}
+// to display question and answer otions
+var displayQuestion = function(index){
+   for(var i = 0; i < index.optionAnswers.length; i++){
+      var answerButton = document.createElement('button')
+      answerButton.classList.add('btn')
+      answerButton.classList.add('answerbtn')
+      answerButton.innerText = index.optionAnswers[i].optionAnswers
+      answerButtonEl.appendChild(answerButton)
+   }
+}
+
