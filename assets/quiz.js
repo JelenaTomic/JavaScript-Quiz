@@ -218,3 +218,67 @@ var showScore = function () {
  scoreDisplay.innerText = ("Time is up! Your total score is" + score );
  containerScoreEl.appendChild(scoreDisplay) 
 }
+
+// topscore value
+var createTopScore= function(event) { 
+   event.preventDefault() 
+   var  nameEl= document.querySelector("#name").value;
+   if (!nameEl) {
+     alert("Please,enter your name!");
+     return;
+   }
+
+ formplayer.reset();
+
+ var topScore = {
+ nameEl: nameEl,
+ score: score
+ } 
+
+ //push and sort scores
+ TopScores.push(topScore);
+ TopScores.sort((a, b) => {return b.score-a.score});
+
+//clear visibile list to resort
+while (listTopScore.firstChild) {
+  listTopScore.removeChild(listTopScore.firstChild)
+}
+//create elements in order of high scores
+for (var i = 0; i < TopScores.length; i++) {
+ var topscoreEl = document.createElement("li");
+ topscoreEl.ClassName = "top-score";
+ topscoreEl.innerHTML = TopScores[i].nameEl + " - " + TopScores[i].score;
+ listTopScore.appendChild(topscoreEl);
+}
+
+ saveTopScore();
+ displayTopScores();
+
+}
+//save top score
+var saveTopScore = function () {
+   localStorage.setItem("TopScores", JSON.stringify(TopScores))
+       
+}
+//load values/ called on page load
+var loadTopScore = function () {
+   var LoadedTopScores = localStorage.getItem("TopScores")
+       if (!LoadedTopScores) {
+       return false;
+   }
+
+   LoadedTopScores = JSON.parse(LoadedTopScores);
+   LoadedTopScores.sort((a, b) => {return b.score-a.score})
+
+
+   for (var i = 0; i < LoadedTopScores.length; i++) {
+       var topscoreEl= document.createElement("li");
+       topscoreEl.ClassName = "top-score";
+       topscoreEl.innerText = LoadedTopScores[i].namesEl + " - " + LoadedTopScores[i].score;
+       listTopScore.appendChild(topscoreEl);
+
+      TopScores.push(LoadedTopScores[i]);
+       
+   }
+}  
+
