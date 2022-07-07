@@ -1,6 +1,7 @@
 # JavaScript-Quiz
 
 ## Deployed application
+https://jelenatomic.github.io/JavaScript-Quiz/
 
     
 ## Description
