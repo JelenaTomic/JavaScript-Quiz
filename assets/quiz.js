@@ -22,18 +22,31 @@
 // 9q. What is the output of "10"+20+30 in JavaScript? 102030 ,60 ,"10"50 , none the above. answ 102030
 // 10q.Are Java and JavaScript same? yes, no, in some way, none the above, answ yes
 
-var containerQuestions = document.getElementById("question-container");
-var containerStart = document.getElementById("start");
-var correctEl =document.getElementById("correct");
-var incorrectEl = document.getElementById("incorrect");
-var btnStartEl = document.querySelector("#start-button");
-var questionsEl = document.getElementById("questions");
-var answerButtonEl = document.getElementById("answers-buttons");
-var timerEl = document.querySelector("#timer");
+var containerQuestionEl = document.getElementById("question-container")
+var containerStart = document.getElementById("start")
+var containerEnd = document.getElementById("timeisup")
+var containerScoreEl = document.getElementById("score-banner")
+var formplayer = document.getElementById("player")
+var containerTopScores = document.getElementById("topscore-area")
+var viewTopScore = document.getElementById("view-top-scores")
+var listTopScore = document.getElementById("users-scores")
+var correctEl = document.getElementById("correct")
+var incorrectEl = document.getElementById("incorrect")
+
+// element answers and questions
+var questionEl = document.getElementById("questions")
+var answerButtons = document.getElementById("answers-buttons")
+var timerEl = document.querySelector("#timer")
 var score = 0;
-var timeleft;
-var timeisup;
+var timeleft
+var timeisup
 timerEl.innerText = 0;
+
+// Buttons
+var buttonStart = document.querySelector("#start-button")
+var buttonStartOver = document.querySelector("#start-over")
+var buttonClearScores = document.querySelector("#clear-top-scores")
+
 
 // qestions and answers
 var questions = [
@@ -86,7 +99,12 @@ var questions = [
     answer: 1
  },
 ]
+// assign details for questions
 var questionIndex = 0
+var arrayShuffledQuestions
+
+// topscore array
+var TopScores=[]
 
 // timer, check if the time is up. Start time 150
 var setTime = function(){
@@ -112,8 +130,8 @@ var timercheck = setInterval(function () {
 var startGame = function(){
     containerStart.classList.add('hide');
     containerStart.classList.remove('show');
-    containerQuestionsEl.classList.remove('hide');
-    containerQuestionsEl.classList.add('show');
+    containerQuestionEl.classList.remove('hide');
+    containerQuestionEl.classList.add('show');
     arrayShuffledQuestions = questions.sort(() => Math.random() - 0.5)
         setTime()
         setQuestion()
@@ -121,23 +139,71 @@ var startGame = function(){
 // set up next question for quiz
 var setQuestion = function(){
    resetAnswers()
-   displayQuestion(arrayShuffledQuestions[qestionIndex])
+   displayQuestion(arrayShuffledQuestions[questionIndex])
 }
 
 // to remove question buttons
 var resetAnswers = function(){
-   while (answerButtonEl.firstChild){
-      answerButtonEl.firstChild(answerButtonEl.firstChild)
+   while (answerButtons.firstChild){
+      answerButtons.removeChild(answerButtons.firstChild)
    };
 }
+
 // to display question and answer otions
 var displayQuestion = function(index){
+   questionEl.innerText = index.question
    for(var i = 0; i < index.optionAnswers.length; i++){
-      var answerButton = document.createElement('button')
-      answerButton.classList.add('btn')
-      answerButton.classList.add('answerbtn')
-      answerButton.innerText = index.optionAnswers[i].optionAnswers
-      answerButtonEl.appendChild(answerButton)
+      var answerbutton = document.createElement('button')
+      answerbutton.innerText = index.optionAnswers[i].optionAnswers
+      answerbutton.classList.add('btn')
+      answerbutton.classList.add('answerbtn')
+      answerbutton.addEventListener("click", answerCheck)
+      answerButtons.appendChild(answerbutton)
    }
 }
 
+//  display correct if the question is answered right
+var answerCorrect = function(){
+   if(correctEl.className = "hide"){
+      correctEl.classList.remove("hide")
+      correctEl.classList.add("banner")
+      incorrectEl.classList.remove("banner")
+      incorrectEl.classList.add("hide")
+   }
+}
+
+// display incorrect if the question is not answered right
+var answerIncorrect = function(){
+   if(incorrectEl.className ="hide"){
+      incorrectEl.classList.remove("hide")
+      incorrectEl.classList.add("banner")
+      correctEl.classList.remove("banner")
+      correctEl.classList.add("banner")
+   }
+
+}
+
+// checking if the answer is correct
+var answerCheck = function(event){
+   var selectedAnswer = event.target
+   if(arrayShuffledQuestions[questionIndex].answer === selectedAnswer.innerText){
+      answerCorrect()
+      score = score ++
+   }
+   else {
+      answerIncorrect()
+      score = score --;
+      timeleft = timeleft - 10;
+
+   }
+
+   // checking if there is more questions, if it is, go next one
+   questionIndex++
+   if(arrayShuffledQuestions.lenght> questionIndex+1){
+      setQuestion()
+   }
+   else{
+      timeisup = "true"
+      showScore();
+   }
+}

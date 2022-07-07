@@ -10,17 +10,20 @@
 </head>
 <body>
     <header>
+        <h3 id="view-top-scores">View Top Scores</h3>
         <h2 class="timer">Time: <span id="timer"></span>
         </h2>    
     </header>
     
     <div id="start" class="show">
+        <div class="container start">
         <h2>Welcome to JavaScript quiz</h2>
         <p>Answer the questions based on your knowledge and try to beat the time.</p>
         <br>
         <p>Every incorrect answer will subtract 10 seconds from your clock.</p>
         <!-- <p>Press start to begin</p> -->
-        <button id="start-button">Start the quiz</button>
+        <button class = "button start" id="start-button">Start the quiz</button>
+        </div>
     </div>
     <!-- div for button to start the quiz -->
 
@@ -28,38 +31,48 @@
         <!--div with class container for everything on the screen  -->
         <div id="question-container" class="hide">
 
-        </div>
-        <!-- div for questionsto hel us with ja and it will be hidden -->
-        <div id="questions">
+         <!-- div for questionsto hel us with ja and it will be hidden -->
+         <div id="questions">
 
-        </div>
-        <div id="answers-buttons" class="btn-grid">
+         </div>
+         <div id="answers-buttons" class="btn-grid">
            <!--the answer part of the box  -->
-        </div>
-
+         </div>
+        </div>  
       
         <!--If player run out of the time the game stops -->
-        <div id="Timeisup" class="hide">
-            <h2>Your time is up! </h2>
-            <p>Enter your name in the box!</p>
-            <input class="player" type="text" /> 
-            <span>Final Score:  </span>
-            <span class="final-score"></span>
-            <button type="button" id="submitName" class="btn btn-success">Score</button>
-  
+        <div id="timeisup" class="hide">
+            <div class="end container">
+                <div id="score-banner">
+                  <h2>Your time is up! </h2>
+                </div>
+                <form id="player" class="name">
+                  <p>Enter your name in the box!
+                    <input type="text" name="name" id="name" class="text-input"/> 
+                    <button class="button start" id="submit-score" type="submit">Score</button>
+                  </p>
+                </form>
           </div>
-    </div>
+        </div>
+     </div>
     <div id="topscore-area"  class="hide"> 
-        <h2> Top Scores</h2>
-        <ul id="users-scores"> </ul>
-        <button type="button" id="start-over" class="btn btn-success">Start Over</button>
+        <div class="topscores container">
+         <h2 class="top-score"> Top Scores</h2>
+         <ol id="users-scores" class="score-list"> </ol>
+        <div> 
+         <button class="button" id="start-over" >Start Over</button>
+         <button class="button" id="clear-top-scores">Clear Top Scores</button>
+        </div>
       </div>
+    </div>
 
-      <div class="hide" id="correct">
+    <div class="hide" id="correct">
         <h2>Correct!</h2>
     </div>
     <div class="hide" id="incorrect">
         <h2>Incorrect! </h2>
     </div>
+ <script src="./assets/quiz.js"></script> 
+
 </body>
 </html>
