@@ -4,20 +4,18 @@
 }
 body{
     /* making question box on the middle */
-    margin: auto;
+    margin: 0;
     padding: 0;
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
     align-items: center;
     background-color:  #ffcba7; 
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
 }
 
 /* header */
 header{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin: auto;
     width: 80%;
 }
@@ -33,24 +31,23 @@ header h2{
     display: inline;
 }
 
-p{
-    font-size: 15px;
-}
 
 .timer{
     font-size: 25px;
     color: #b4c6dc;
     display: inline;
-    text-align: right;
+    text-align: left;
     padding-right:25px ;
     text-shadow: 4px;
 }
 .container{
     background-color: #ffeadc ;
-    width: 800px;
+    /* width: 50%; */
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 0 20px 4px;
+    flex-direction: column;
+    margin: auto;
 
 }
 .start{
@@ -58,7 +55,7 @@ p{
     justify-content: center;
     align-items:  center;
 }
-.questions-container {
+.questions {
     align-items: flex-start;
     justify-content: flex-start;
     padding: 40px 20px;
@@ -107,3 +104,27 @@ p{
 .hide{
     display: none;
 }
+
+.banner{
+    font-size: 20px;
+    text-align: center;
+    font-style: oblique;
+}
+
+ol{
+    list-style-type: number;
+}
+
+@media screen and (max-width: 992px) {
+	.html {
+		width: 50%;
+	}
+
+}
+
+@media screen and (max-width:768px) {
+	.html {
+		width: 100%;
+	}
+
+} 
