@@ -106,6 +106,8 @@ var arrayShuffledQuestions
 // topscore array
 var TopScores=[]
 
+
+
 // timer, check if the time is up. Start time 100
 var setTime = function(){
    timeleft = 100;
@@ -327,9 +329,9 @@ var clearScores = function () {
 
 loadTopScore()
 
-// go back button on topscore page
+// start over button on topscore page
 var renderStartPage = function () {
-   containerScoreEl.classList.add("hide")
+   containerTopScores.classList.add("hide")
    containerTopScores.classList.remove("show")
    containerStart.classList.remove("hide")
    containerStart.classList.add("show")
