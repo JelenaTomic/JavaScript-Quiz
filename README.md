@@ -34,8 +34,11 @@ When button score is pressed window TopScore will be presented and player have a
 ## Credits
 Google and youtube :
 https://www.sitepoint.com/simple-javascript-quiz/
+<br>
 https://www.geeksforgeeks.org/how-to-create-a-simple-javascript-quiz/
+<br>
 https://www.youtube.com/watch?v=TT7ufOKX-U4
+<br>
 https://www.youtube.com/watch?v=riDzcEQbX6k
 
 Special credits goes to Erik from AskBCS Learning Assistant who helped me find my typo mistake (and maintain my sanity at that point)
