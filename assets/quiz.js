@@ -207,3 +207,14 @@ var answerCheck = function(event){
       showScore();
    }
 }
+
+// showing total score at whent the time is up
+var showScore = function () {
+   containerQuestionEl.classList.add("hide")
+   containerEnd.classList.remove("hide")
+   containerEnd.classList.add("show")
+
+ var scoreDisplay = document.createElement("p");
+ scoreDisplay.innerText = ("Time is up! Your total score is" + score );
+ containerScoreEl.appendChild(scoreDisplay) 
+}
