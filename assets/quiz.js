@@ -106,9 +106,9 @@ var arrayShuffledQuestions
 // topscore array
 var TopScores=[]
 
-// timer, check if the time is up. Start time 150
+// timer, check if the time is up. Start time 100
 var setTime = function(){
-   timeleft = 150;
+   timeleft = 100;
 
 
 var timercheck = setInterval(function () {
@@ -118,7 +118,7 @@ var timercheck = setInterval(function () {
     if(timeisup){
         clearInterval(timercheck)
     }
-    if(timeleft < 0){
+    if(timeleft <= 0){
         showScore()
         timerEl.innerText = 0
         clearInterval(timercheck)
@@ -178,7 +178,7 @@ var answerIncorrect = function(){
       incorrectEl.classList.remove("hide")
       incorrectEl.classList.add("banner")
       correctEl.classList.remove("banner")
-      correctEl.classList.add("banner")
+      correctEl.classList.add("hide")
    }
 
 }
@@ -192,18 +192,18 @@ var answerCheck = function(event){
    }
    else {
       answerIncorrect()
-      score = score - 1;
+      score = score - 0;
       timeleft = timeleft - 10;
 
    }
 
    // checking if there is more questions, if it is, go next one
    questionIndex++
-   if(arrayShuffledQuestions.lenght> questionIndex+1){
+   if(arrayShuffledQuestions.length> questionIndex + 1){
       setQuestion()
    }
    else{
-      timeisup = "true"
+      timeisup = true
       showScore();
    }
 }
@@ -215,7 +215,7 @@ var showScore = function () {
    containerEnd.classList.add("show")
 
  var scoreDisplay = document.createElement("p");
- scoreDisplay.innerText = ("Time is up! Your total score is  " + score );
+ scoreDisplay.innerText = ("Your total score is  " + score );
  containerScoreEl.appendChild(scoreDisplay) 
 }
 
@@ -335,7 +335,7 @@ var renderStartPage = function () {
    containerStart.classList.add("show")
    containerScoreEl.removeChild(containerScoreEl.lastChild)
    questionIndex = 0
-   gameover = ""
+   timeisup = ""
    timerEl.textContent = 0 
    score = 0
 
