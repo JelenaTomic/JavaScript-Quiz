@@ -327,3 +327,38 @@ var clearScores = function () {
 
 loadTopScore()
 
+// go back button on topscore page
+var renderStartPage = function () {
+   containerScoreEl.classList.add("hide")
+   containerTopScores.classList.remove("show")
+   containerStart.classList.remove("hide")
+   containerStart.classList.add("show")
+   containerScoreEl.removeChild(containerScoreEl.lastChild)
+   questionIndex = 0
+   gameover = ""
+   timerEl.textContent = 0 
+   score = 0
+
+   if (correctEl.className = "show") {
+       correctEl.classList.remove("show");
+       correctEl.classList.add("hide")
+   }
+   if (incorrectEl.className = "show") {
+       incorrectEl.classList.remove("show");
+       incorrectEl.classList.add("hide");
+   }
+}
+   
+ //on start click, start game
+ buttonStart.addEventListener("click", startGame)
+
+ //on submit button -- enter or click
+ formplayer.addEventListener("submit", createTopScore)
+
+ //when view top-scores is clicked
+ viewTopScore.addEventListener("click", displayTopScores)
+
+ //start over button
+ buttonStartOver.addEventListener("click", renderStartPage)
+ //clear scores button
+ buttonClearScores.addEventListener("click", clearScores)
