@@ -281,4 +281,49 @@ var loadTopScore = function () {
        
    }
 }  
+//display high score screen from link or when name entered
+var displayTopScores = function() {
+
+   containerTopScores.classList.remove("hide");
+   containerTopScores.classList.add("show");
+   timeisup = "true"
+
+   if (containerEnd.className = "show") {
+       containerEnd.classList.remove("show");
+       containerEnd.classList.add("hide");
+       }
+   if (containerStart.className = "show") {
+       containerStart.classList.remove("show");
+       containerStart.classList.add("hide");
+       }
+       
+   if (containerQuestionEl.className = "show") {
+       containerQuestionEl.classList.remove("show");
+       containerQuestionEl.classList.add("hide");
+       }
+
+   if (correctEl.className = "show") {
+       correctEl.classList.remove("show");
+       correctEl.classList.add("hide");
+   }
+
+   if (incorrectEl.className = "show") {
+       incorrectEl.classList.remove("show");
+       incorrectEl.classList.add("hide");
+       }
+   
+}
+//clears high scores
+var clearScores = function () {
+   TopScores = [];
+
+   while (listTopScore.firstChild) {
+       listTopScore.removeChild(listTopScore.firstChild);
+   }
+
+   localStorage.clear(TopScores);
+
+} 
+
+loadTopScore()
 
